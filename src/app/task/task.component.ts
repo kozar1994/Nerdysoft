@@ -90,11 +90,11 @@ export class TaskComponent implements OnInit {
   }
 
   /*метод для показу користувачів які бачуть таск*/
-  whoCanView(ids) {
+  /*whoCanView(ids) {
 
     //console.log(this.userService.getUserFor(ids));
 
     return 'good';
 
-  }
+  }*/
 }

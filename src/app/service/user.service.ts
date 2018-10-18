@@ -25,7 +25,7 @@ export class UserService {
     return this.http.get(this.urlBase + '?id=' + id);
   }
 
-  getUserFor (ids) {
+  /*getUserFor (ids) {
     let result = [];
     if (typeof ids === 'object') {
       for (let i = 0; i < ids.length; i++) {
@@ -36,7 +36,7 @@ export class UserService {
     }
 
     return result;
-  }
+  }*/
 
   getUserList() {
     return this.http.get(this.urlBase);
