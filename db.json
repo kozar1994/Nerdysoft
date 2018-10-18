@@ -1,0 +1,71 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "users": [
+    {
+      "email": "user1@gmail.com",
+      "pass": "0987",
+      "id": 1
+    },
+    {
+      "email": "vovakozar@gmail.com",
+      "pass": "1234",
+      "id": 2
+    }
+  ],
+  "task": [
+    {
+      "id": 1,
+      "title": "task 1",
+      "desc": "task 1 description",
+      "whoAdds": "2",
+      "edit": [
+        2,
+        1
+      ]
+    },
+    {
+      "title": "task 2",
+      "desc": "task 2",
+      "whoAdds": 2,
+      "edit": 2,
+      "id": 2
+    },
+    {
+      "title": "task 3",
+      "desc": "task 3",
+      "whoAdds": 2,
+      "edit": 2,
+      "id": 3
+    },
+    {
+      "title": "task test",
+      "desc": "task test",
+      "whoAdds": 2,
+      "edit": 2,
+      "id": 4
+    },
+    {
+      "title": "test task test task test task",
+      "desc": "asdasd asd asd asdasdas",
+      "whoAdds": 2,
+      "edit": 2,
+      "id": 5
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

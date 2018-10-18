@@ -1,0 +1,26 @@
+<form *ngIf="!userRegistered" [formGroup]="formReg" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="regEmail">Email address</label>
+    <input
+            [ngClass]="{'is-invalid': formReg.get('regEmail').invalid && formReg.get('regEmail').touched}"
+            type="email" class="form-control" formControlName="regEmail" id="regEmail" aria-describedby="emailHelp" placeholder="Enter email">
+    <div class="invalid-feedback">
+      We'll never share your email with anyone else.
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="regPass">Password</label>
+    <input
+            [ngClass]="{'is-invalid': formReg.get('regPass').invalid && formReg.get('regPass').touched}"
+            type="password" class="form-control" formControlName="regPass" id="regPass" placeholder="Password">
+    <div class="invalid-feedback">
+      Please provide a valid state.
+    </div>
+  </div>
+  <button [disabled]="formReg.invalid" type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<div *ngIf="userRegistered" class="alert alert-success" role="alert">
+  You have successfully registered. <strong>You can go in.</strong>
+</div>
+

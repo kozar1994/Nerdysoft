@@ -1,0 +1,100 @@
+<div class="row" style="padding-bottom: 20px">
+    <div class="col-md-12">
+        <form [formGroup]="form" (ngSubmit)="onCreateNewTask()">
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" class="form-control" id="title" formControlName="title" aria-describedby="emailHelp"
+                       placeholder="Enter title">
+            </div>
+            <div class="form-group">
+                <label for="desc">Description</label>
+                <input type="text" class="form-control" id="desc" formControlName="desc" aria-describedby="emailHelp"
+                       placeholder="Enter description">
+            </div>
+            <button [disabled]="form.invalid" type="submit" class="btn btn-outline-primary btn-lg btn-block">
+                Add new Task
+            </button>
+        </form>
+    </div>
+</div>
+
+
+<div class="row">
+
+    <ul class="list-group col-md-6">
+
+        <button type="button" class="btn btn-primary btn-lg button-gatrer">Large button</button>
+        <button type="button" class="btn btn-secondary btn-lg button-gatrer">Large button</button>
+
+        <li
+                style="flex-direction: column"
+                *ngFor="let item of task"
+                class="list-group-item d-flex justify-content-between align-items-baseline">
+            <div class="row" >
+                <div class="col-md-8">id: {{ item.id }} - {{ item.title }}</div>
+                <div class="btn-group btn-group-toggle col-md-4" data-toggle="buttons">
+                    <label class="btn btn-secondary active">
+                        <button (click)="onEditTask(item.id)" type="botton" class="btn btn-primary" name="options">Edit</button>
+                    </label>
+                    <label class="btn btn-secondary">
+                        <button (click)="onDeleteTask(item.id)" type="botton" class="btn btn-danger" name="options">Delete
+                        </button>
+                    </label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">Can view: <strong>{{ whoCanView(item.edit) }}</strong></div>
+            </div>
+        </li>
+
+
+    </ul>
+
+    <div class="card col-md-6">
+        <div *ngIf="!addeSuccess" class="card-body">
+            <div *ngIf="!editTaskClick" class="not-select-task">
+                <h5 class="card-title">Select a taske</h5>
+                <p class="card-text">To edit a task, press the button <strong>Edit</strong></p>
+            </div>
+            <div *ngIf="editTaskClick" class="select-task">
+                <form [formGroup]="formEdit" (ngSubmit)="onEditTaskSend(editTaskInfoForm)">
+
+                    <div class="form-group">
+                        <label for="titleEdit">Title</label>
+                        <input type="text"
+                               class="form-control"
+                               id="titleEdit"
+                               formControlName="title"
+                               aria-describedby="emailHelp"
+                               placeholder="Enter title"
+                               value="{{ editTaskInfoForm['title'] }}"
+                        >
+                    </div>
+                    <div class="form-group">
+                        <label for="descEdit">Description</label>
+                        <input type="text"
+                               class="form-control"
+                               id="descEdit"
+                               formControlName="desc"
+                               aria-describedby="emailHelp"
+                               placeholder="Enter description"
+                               value="{{ editTaskInfoForm['desc'] }}"
+                        >
+                    </div>
+                    <button [disabled]="formEdit.invalid" type="submit" class="btn btn-outline-primary btn-lg btn-block">
+                        Edit Task
+                    </button>
+
+                    <button (click)="onQuit()" type="submit" class="btn btn-outline-primary btn-lg btn-block">
+                        Quit
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div *ngIf="addeSuccess" class="card-body">
+            <div class="alert alert-success" role="alert">
+                Successfully changed
+            </div>
+        </div>
+    </div>
+</div>

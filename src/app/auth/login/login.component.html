@@ -1,0 +1,29 @@
+<div *ngIf="errorLogin" class="alert alert-danger" role="alert">
+ Error of login
+</div>
+
+<form [formGroup]="formLogin" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="loginEmail">Email address</label>
+    <input
+            [ngClass]="{'is-invalid': formLogin.get('loginEmail').invalid && formLogin.get('loginEmail').touched}"
+            type="email" class="form-control" formControlName="loginEmail" id="loginEmail" aria-describedby="emailHelp" placeholder="Enter email">
+    <div class="invalid-feedback">
+      We'll never share your email with anyone else.
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="loginPass">Password</label>
+    <input
+            [ngClass]="{'is-invalid': formLogin.get('loginPass').invalid && formLogin.get('loginPass').touched}"
+            type="password" class="form-control" formControlName="loginPass" id="loginPass" placeholder="Password">
+    <div class="invalid-feedback">
+      Please provide a valid state.
+    </div>
+  </div>
+  <div class="form-check">
+    <input type="checkbox" class="form-check-input" formControlName="loginCheck1" id="loginCheck1">
+    <label class="form-check-label" for="loginCheck1">Check me out</label>
+  </div>
+  <button [disabled]="formLogin.invalid" type="submit" class="btn btn-primary">Submit</button>
+</form>
