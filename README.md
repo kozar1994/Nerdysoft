@@ -2,7 +2,7 @@
 в папці перше:
 npm install -g json-server
 Потім стандартний запуск
-ng serve
+ng serve ->
 json-server --watch db.json
 і все працює
 
